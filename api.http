@@ -1,0 +1,49 @@
+### Recuperar todas las películas
+GET http://localhost:1234/movies
+
+### Recuperar una película por id
+GET http://localhost:1234/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+
+
+### Recuperar todas las películas por un género
+GET http://localhost:1234/movies?genre=CRIME
+
+
+### Crear una película
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "sql": "SELECT * FROM users",
+    "title": "The Godfather",
+    "year": 1975,
+    "director": "Francis Ford Coppola",
+    "duration": 175,
+    "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
+    "genre": [
+        "Crime",
+        "Drama"
+    ]
+}
+
+### Crear otra película (ERROR)
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": 1,
+    "year": "pepote"
+}
+
+
+### Actualizar una película (Solo una parte de la película)
+
+PATCH http://localhost:1234/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e0
+Content-Type: application/json
+
+{   
+    "title":"Hola",
+    "year":1973
+}
+
+
